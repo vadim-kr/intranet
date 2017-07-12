@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'internalTX';
+  src:  url('fonts/internalTX.eot?3p4ufg');
+  src:  url('fonts/internalTX.eot?3p4ufg#iefix') format('embedded-opentype'),
+    url('fonts/internalTX.ttf?3p4ufg') format('truetype'),
+    url('fonts/internalTX.woff?3p4ufg') format('woff'),
+    url('fonts/internalTX.svg?3p4ufg#internalTX') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'internalTX' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Phone:before {
+  content: "\e90e";
+}
+.icon-Quote:before {
+  content: "\e90f";
+}
+.icon-Trend-down:before {
+  content: "\e910";
+}
+.icon-Trend-up:before {
+  content: "\e911";
+}
+.icon-Arrow-left:before {
+  content: "\e90a";
+}
+.icon-Arrow-right:before {
+  content: "\e90b";
+}
+.icon-Mail:before {
+  content: "\e90c";
+}
+.icon-Skype-icon:before {
+  content: "\e90d";
+}
+.icon-Document:before {
+  content: "\e909";
+}
+.icon-Pizza:before {
+  content: "\e905";
+}
+.icon-Lightning:before {
+  content: "\e906";
+}
+.icon-Edit:before {
+  content: "\e907";
+}
+.icon-Expand:before {
+  content: "\e908";
+}
+.icon-Close:before {
+  content: "\e904";
+}
+.icon-Search:before {
+  content: "\e903";
+}
+.icon-Checkmark:before {
+  content: "\e900";
+}
+.icon-Comment:before {
+  content: "\e901";
+}
+.icon-Like:before {
+  content: "\e902";
+}

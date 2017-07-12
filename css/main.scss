@@ -1,0 +1,1515 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ul {
+  list-style: none;
+}
+
+ol {
+  list-style: decimal;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote {
+  &:before,
+  &:after {
+    content: '';
+    content: none;
+  }
+}
+
+q {
+  &:before,
+  &:after {
+    content: '';
+    content: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin transition($transition...) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transition-property($property...) {
+  -moz-transition-property: $property;
+  -o-transition-property: $property;
+  -webkit-transition-property: $property;
+  transition-property: $property;
+}
+
+@mixin transition-duration($duration...) {
+  -moz-transition-property: $duration;
+  -o-transition-property: $duration;
+  -webkit-transition-property: $duration;
+  transition-property: $duration;
+}
+
+//---------- Gradient ----------
+
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+//------------- Shadow -----------
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+//---------- Variables ----------
+$blue: #0697FC;
+$border-grey: #ECEEF0;
+$grey-text: #87939C;
+$green: #43B02A;
+$light-grey: #F8F9FA;
+$dark-blue: #092A46;
+$black: #00172B;
+//---------- Common ----------
+::-webkit-input-placeholder {
+  color: $grey-text;
+}
+
+::-moz-placeholder {
+  color: $grey-text;
+}
+
+:-moz-placeholder {
+  color: $grey-text;
+}
+
+:-ms-input-placeholder {
+  color: $grey-text;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font: 400 16px/24px 'Source Sans Pro', sans-serif;
+}
+
+.content {
+  padding-top: 64px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  @include transition(color .3s);
+  &:hover,
+  &:active,
+  &:link,
+  &:visited,
+  &:focus {
+    @include transition(color .3s);
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+h1 {
+  font: 64px/64px 'akzentica_4fmedium', sans-serif;
+  color: $black;
+  margin-top: 72px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font: 32px/32px 'akzentica_4fmedium', sans-serif;
+  a {
+    color: $black;
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+h3 {
+  font: 24px/32px 'akzentica_4fmedium', sans-serif;
+  margin-bottom: 5px;
+  margin-top: 24px;
+}
+
+h4 {
+  font-family: 'akzentica_4fmedium', sans-serif;
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 12px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: $grey-text;
+  border-bottom: 1px solid $border-grey;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+//---------- Header ----------
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  height: 64px;
+  border-bottom: 1px solid $border-grey;
+  .user-pic {
+    display: block;
+    margin-top: 16px;
+    float: right;
+    img {
+      display: block;
+      width: 32px;
+      height: 32px;
+      @include border-radius(50%);
+    }
+  }
+}
+
+.top-section {
+  background: $dark-blue;
+  padding: 32px 0;
+
+  h1 {
+    display: block;
+    margin-top: 54px;
+    color: #fff;
+  }
+
+  .btn-group {
+    background: none;
+    .btn-default {
+      color: rgba(#fff, 0.5);
+      @include transition(color .3s);
+      &:hover, &:active, &:visited {
+        @include transition(color .3s);
+        color: #fff;
+      }
+    }
+  }
+
+  .right {
+    border-right: 1px solid rgba(#808B95, 0.2);
+    padding-right: 32px;
+  }
+
+  &.large {
+    padding-bottom: 128px;
+
+    h1 {
+      margin-top: 128px;
+
+    }
+  }
+}
+
+.statistics {
+  margin-top: 54px;
+  padding-left: 24px;
+  .number {
+    font: 64px/64px 'akzentica_4fmedium', sans-serif;
+    color: #fff;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font: 16px/16px 'Source Sans Pro', sans-serif;
+    color: #fff;
+    display: block;
+    span {
+      font-weight: bold;
+      display: inline-block;
+      margin-left: -8px;
+    }
+  }
+}
+
+//.search {
+//  box-sizing: border-box;
+//  display: block;
+//  float: right;
+//  margin-top: 12px;
+//  position: relative;
+//  width: 100%;
+//  padding-right: 88px;
+//  margin-right: -40px;
+//  #search-btn {
+//    display: block;
+//    width: 40px;
+//    font-size: 25px;
+//    line-height: 40px;
+//    padding: 0 8px;
+//    position: absolute;
+//    top: 0;
+//    right: 56px;
+//    @include transition(opacity .3s);
+//    z-index: 50;
+//    &:hover {
+//      cursor: pointer;
+//      opacity: 0.7;
+//      @include transition(opacity .3s);
+//    }
+//  }
+//  #close-btn {
+//    font-size: 24px;
+//    line-height: 40px;
+//    color: $grey-text;
+//    position: relative;
+//    z-index: 50;
+//    float: right;
+//    display: none;
+//    margin-right: -32px;
+//    &:hover {
+//      cursor: pointer;
+//    }
+//  }
+//  input {
+//    border: none;
+//    box-sizing: border-box;
+//    background: #F8F8FA;
+//    height: 40px;
+//    line-height: 40px;
+//    float: right;
+//    padding: 0 16px 0 40px;
+//    width: 0;
+//    opacity: 0;
+//    @include border-radius(2px);
+//    &:focus {
+//      outline: 0;
+//    }
+//  }
+//}
+
+.search {
+  margin-bottom: 24px;
+  position: relative;
+  input {
+    border: none;
+    box-sizing: border-box;
+    background: #F8F8FA;
+    font-size: 16px;
+    height: 56px;
+    line-height: 40px;
+    padding: 0 56px;
+    width: 100%;
+    @include border-radius(2px);
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    border: 0;
+    font-size: 24px;
+    line-height: 56px;
+    color: $black;
+    padding: 0 16px;
+    outline: 0;
+    @include transition(color .3s);
+    &:hover {
+      color: $blue;
+      @include transition(color .3s);
+      outline: 0;
+    }
+  }
+
+  .clear {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    line-height: 56px;
+    padding: 0 16px;
+    color: $grey-text;
+    @include transition(color .3s);
+    &:hover {
+      @include transition(color .3s);
+      cursor: pointer;
+      color: $blue;
+    }
+  }
+}
+
+.nav {
+  padding-top: 20px;
+  padding-left: 8px;
+  .nav-link {
+    display: inline-block;
+    margin-right: 40px;
+    color: $black;
+    font: 18px/20px 'akzentica_4fmedium', sans-serif;
+    &.active {
+      border-bottom: 4px solid $blue;
+      padding-bottom: 19px;
+      &:hover {
+        color: inherit;
+        cursor: default;
+      }
+    }
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+.logo {
+  display: block;
+  margin-top: 20px;
+}
+
+//--------- Templates ---------
+section {
+  margin-top: 56px;
+  border-bottom: 1px solid $border-grey;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.button {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 40px;
+  background: $blue;
+  color: #fff;
+  font: 18px/36px 'Source Sans Pro', sans-serif;
+  padding: 0 24px;
+  @include border-radius(2px);
+  @include transition(linear-gradient .3s);
+  @include linear-gradient(90deg, $blue, #0EC8FE);
+  border: 0;
+  outline: 0;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+    @include linear-gradient(45deg, $blue, #0EC8FE);
+    @include transition(linear-gradient .3s);
+    cursor: pointer;
+  }
+  &.ghost {
+    color: $blue;
+    background: none;
+    border: 2px solid $blue;
+    &.going {
+      color: $green;
+      border-color: $green;
+      vertical-align: middle;
+      @include transition(color, background .3s);
+      &:hover {
+        background: $green;
+        @include transition(color, background .3s);
+      }
+      span {
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 24px;
+        vertical-align: middle;
+        padding-right: 4px;
+        margin-left: -11px;
+        display: inline-block;
+        padding-bottom: 4px
+      }
+    }
+    @include transition(color, background .3s);
+    &:hover {
+      background: $blue;
+      color: #fff;
+      @include transition(color, background .3s);
+    }
+  }
+}
+
+.create-post {
+  margin-top: 90px;
+  float: right;
+}
+
+.btn-group {
+  display: inline-block;
+  background: #F8F8FA;
+  margin: 40px 0;
+  width: auto;
+  @include border-radius(20px);
+  .btn-default {
+    display: inline-block;
+    border: 0;
+    padding: 0 16px;
+    font: 16px/32px 'akzentica_4fmedium', sans-serif;
+    color: $grey-text;
+    background: none;
+    margin: 0;
+    outline: 0;
+    @include border-radius(20px);
+    @include transition(color .3s);
+    &:hover, &:active, &:visited {
+      outline: 0;
+      background: none;
+      box-shadow: none;
+      color: $blue;
+      @include transition(color .3s);
+    }
+    &.active {
+      background: #fff;
+      margin: 0;
+      box-shadow: none;
+      color: #fff;
+      outline: 0;
+      @include border-radius(20px);
+      @include linear-gradient(90deg, $blue, #0EC8FE);
+      &:hover {
+        cursor: default;
+        outline: 0;
+      }
+    }
+  }
+
+}
+
+.posted {
+  font: 400 16px/32px 'Source Sans Pro', sans-serif;
+  margin-bottom: 24px;
+  color: $grey-text;
+}
+
+.edit-post {
+  font-size: 24px;
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: $grey-text;
+  @include transition(color .3s);
+  &:hover {
+    cursor: pointer;
+    color: $blue;
+    @include transition(color .3s);
+  }
+}
+
+.event {
+  .cover {
+    margin-bottom: 0;
+  }
+
+  .event-info {
+    margin-bottom: 24px;
+    background: #F8F8FA;
+    padding: 24px;
+  }
+  .event-date {
+    float: left;
+    text-align: center;
+    padding-right: 24px;
+    margin-right: 24px;
+    border-right: 1px solid #E1E1E1;
+
+    .day {
+      display: block;
+      font: 48px/40px 'akzentica_4fmedium', sans-serif;
+    }
+    .month {
+      display: block;
+      font: 16px/24px 'akzentica_4fmedium', sans-serif;
+    }
+  }
+  .details {
+    float: left;
+  }
+  .venue {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  p.going {
+    font-size: 16px;
+    color: $grey-text;
+  }
+  .button {
+    width: 102px;
+    float: right;
+  }
+}
+
+.description {
+  font-size: 18px;
+  line-height: 24px;
+  p {
+    margin-bottom: 16px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    a {
+      color: $blue;
+      &:hover {
+        color: darken($blue, 10%);
+      }
+    }
+  }
+}
+
+.attachments-area {
+  margin-top: 24px;
+  a {
+    display: block;
+    background: #F8F8FA;
+    height: 48px;
+    font-size: 14px;
+    line-height: 48px;
+    margin-bottom: 16px;
+    @include border-radius(2px);
+    span {
+      display: block;
+      float: left;
+      color: #fff;
+      font-size: 24px;
+      line-height: 48px;
+      text-align: center;
+      width: 48px;
+      height: 48px;
+      background: $blue;
+      vertical-align: middle;
+      margin-right: 16px;
+      @include border-radius(2px 0 0 2px);
+    }
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.notification {
+  border-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+
+  .icon {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 32px;
+    float: left;
+    margin: -4px 4px 0 -28px;
+  }
+
+  &.newcomer .icon {
+    @include linear-gradient(90deg, $blue, #0EC8FE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.birthday .icon {
+    @include linear-gradient(90deg, #F76B1C, #FAD961);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h4 {
+    font: 12px/24px 'akzentica_4fmedium', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+
+  &.newcomer h4 {
+    @include linear-gradient(90deg, $blue, #0EC8FE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.birthday h4 {
+    @include linear-gradient(90deg, #F76B1C, #FAD961);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .remove {
+    position: absolute;
+    top: 64px;
+    right: 24px;
+    font-size: 24px;
+    line-height: 24px;
+    color: $grey-text;
+    opacity: 0.5;
+    @include transition(opacity .3s);
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+      @include transition(opacity .3s);
+    }
+  }
+
+  .wrap {
+    background: #F8F8FA;
+    padding: 24px 0;
+  }
+
+  .info {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    float: right;
+    padding: 0 40px 0 120px;
+    margin-left: -120px;
+  }
+
+  .description {
+    padding-bottom: 24px;
+    font: 400 18px/24px 'Source Sans Pro', sans-serif;
+  }
+
+  .user-pic {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 24px 0 32px;
+    float: left;
+    @include border-radius(50%);
+  }
+
+  .position {
+    font: 400 16px/24px 'Source Sans Pro', sans-serif;
+    margin-bottom: 8px;
+    color: $grey-text;
+  }
+
+  &.about {
+    margin-top: -80px;
+    margin-bottom: 56px;
+
+    .quote {
+      display: inline-block;
+      font-size: 24px;
+      line-height: 24px;
+      @include linear-gradient(90deg, $blue, #0EC8FE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 6px 0 0 44px;
+    }
+  }
+}
+
+.line-blue {
+  height: 4px;
+  width: 100%;
+  @include linear-gradient(90deg, $blue, #0EC8FE);
+}
+
+.line-orange {
+  height: 4px;
+  width: 100%;
+  @include linear-gradient(90deg, #F76B1C, #FAD961);
+}
+
+.footer {
+  margin-top: 32px;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: -16px;
+  .author {
+    float: left;
+    img {
+      display: block;
+      float: left;
+      width: 40px;
+      height: 40px;
+      @include border-radius(50%);
+    }
+    .text {
+      float: left;
+      margin-left: 16px;
+      .name {
+        display: inline-block;
+        &:hover {
+          color: $blue;
+        }
+      }
+      .position {
+        font-size: 14px;
+        line-height: 16px;
+        color: $grey-text;
+      }
+    }
+  }
+  .info {
+    float: right;
+    line-height: 24px;
+    margin-top: 16px;
+    .date {
+      display: inline-block;
+      color: $grey-text;
+    }
+    .comment {
+      display: inline-block;
+      color: $grey-text;
+      margin-left: 32px;
+      padding-left: 28px;
+      vertical-align: bottom;
+      &:hover {
+        color: $blue;
+      }
+      span {
+        font-size: 24px;
+        line-height: 24px;
+        vertical-align: middle;
+        padding-right: 4px;
+        display: inline-block;
+        padding-bottom: 3px;
+      }
+    }
+    .like {
+      display: inline-block;
+      color: $grey-text;
+      margin-left: 16px;
+      padding-left: 28px;
+      vertical-align: bottom;
+      &:hover {
+        color: $blue;
+        cursor: pointer;
+      }
+      &.liked {
+        span {
+          color: $blue;
+        }
+      }
+      span {
+        font-size: 24px;
+        line-height: 24px;
+        vertical-align: middle;
+        padding-right: 4px;
+        display: inline-block;
+        padding-bottom: 4px;
+      }
+    }
+  }
+}
+
+article {
+  margin: 56px 0 24px 0;
+  border-bottom: 1px solid $border-grey;
+  padding-bottom: 16px;
+
+  img {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .quote {
+    font-size: 22px;
+    line-height: 30px;
+    border-left: 2px solid $blue;
+    text-align: left;
+    padding-left: 30px;
+    margin: 34px 0 34px 0;
+  }
+
+  ol {
+    margin: 16px 0 0 30px;
+    li {
+      margin-bottom: 16px;
+    }
+  }
+
+  ul {
+    margin: 16px 0 16px 16px;
+    li {
+      margin: 0 0 16px 16px;
+      list-style: disc
+    }
+  }
+}
+
+.cover {
+  background: $grey-text;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  margin-bottom: 24px;
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+
+//.cover_video {
+//  width: 100%;
+//  margin-bottom: 24px;
+//  object-fit: cover;
+//}
+
+.pagination {
+  margin-top: 56px;
+  margin-bottom: 56px;
+  span {
+    font-size: 24px;
+    line-height: 64px;
+  }
+  .previous, .next {
+    padding: 2px 0 0 0;
+  }
+  li {
+    height: 40px;
+    &.active a {
+      background-color: $light-grey;
+      color: $black;
+      @include border-radius(2px);
+      &:hover {
+        background-color: $light-grey;
+        cursor: default;
+        color: $black;
+      }
+    }
+    a {
+      font: 18px/64px 'akzentica_4fmedium', sans-serif;
+      padding: 0 24px;
+      border: 0;
+      color: $black;
+      &:hover {
+        color: $blue;
+        background: none;
+      }
+    }
+  }
+}
+
+.trumbowyg-box, .trumbowyg-editor {
+  min-height: 48px;
+  margin-top: 16px;
+}
+
+.trumbowyg-editor {
+  padding: 16px 0 0 0;
+  border-bottom: 1px solid #ECEEF0;
+  @include transition(border-color .3s);
+  &:hover, &:focus {
+    border-color: $blue;
+    @include transition(border-color .3s);
+  }
+}
+
+.trumbowyg-editor[contenteditable=true]:empty:not(:focus)::before {
+  color: $grey-text;
+}
+
+.trumbowyg-box {
+  border: 0;
+  @include border-radius(2px);
+  margin: 0;
+}
+
+.trumbowyg-button-pane {
+  height: 40px;
+  padding: 0;
+  margin: 40px 0 0 0;
+  background: #fff;
+  border: 1px solid #ECEEF0;
+  @include border-radius(2px);
+}
+
+.trumbowyg-button-pane:after {
+  background: none;
+}
+
+.trumbowyg-button-pane .trumbowyg-button-group:not(:empty) + .trumbowyg-button-group:before {
+  background: #ECEEF0;
+  height: 38px;
+}
+
+.trumbowyg-button-group button, .trumbowyg-viewHTML-button {
+  width: 40px;
+  height: 38px;
+  padding: 0 !important;
+  margin: 0;
+  @include transition(opacity .3s);
+
+  &:hover svg {
+    fill: $blue;
+    @include transition(opacity .3s);
+  }
+}
+
+.new-post {
+  clear: both;
+  input[type='text'] {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+    border: 0;
+    border-bottom: 1px solid #ECEEF0;
+    padding-bottom: 8px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .event-fields {
+    padding: 24px 0 0 0;
+    input {
+      height: 40px;
+      line-height: 40px;
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid $border-grey;
+      outline: none;
+      @include transition(border-color .3s);
+      &:hover, &:focus {
+        border-color: $blue;
+        @include transition(border-color .3s);
+      }
+    }
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+}
+
+.comments {
+  margin-bottom: 72px;
+  h4 {
+    margin-bottom: 24px;
+  }
+  img {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    @include border-radius(50%);
+  }
+
+  .author {
+    float: left;
+    .name {
+      font-size: 18px;
+      display: inline-block;
+      &:hover {
+        color: $blue;
+      }
+    }
+    .position {
+      font-size: 14px;
+      line-height: 16px;
+      color: $grey-text;
+    }
+  }
+
+  .posted {
+    float: right;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .comment {
+    box-sizing: border-box;
+    padding-left: 56px;
+    width: 100%;
+    clear: both;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $border-grey;
+  }
+
+  form{
+    padding-left: 56px;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    padding: 8px 16px;
+    border: 1px solid $border-grey;
+    outline: none;
+    margin: 0 0 16px 0;
+    @include border-radius(2px);
+    @include transition(border-color .3s);
+    &:hover, &:focus {
+      border-color: $blue;
+      @include transition(border-color .3s);
+    }
+  }
+
+  .button{
+    float: right;
+  }
+
+}
+
+//---------- Drag and Drop -----------
+
+.drop-area {
+  width: 100%;
+  background-color: $light-grey;
+  margin-top: 24px;
+  text-align: center;
+  color: rgba($grey-text, 0.8);
+  @include transition(color .3s);
+  @include border-radius(2px);
+  &:hover {
+    cursor: pointer;
+    color: $blue;
+    @include transition(color .3s);
+  }
+}
+
+#cover-drop {
+  height: 240px;
+  background-image: url(../img/add-pic.svg);
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  padding-top: 140px;
+  position: relative;
+}
+
+.dz-preview {
+  width: 100%;
+  height: 240px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dz-image {
+  display: flex;
+  height: 240px;
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+
+.dz-error-message, .dz-details, .dz-success-mark, .dz-error-mark {
+  display: none;
+}
+
+#attach-drop {
+  height: 48px;
+  line-height: 48px;
+}
+
+//---------- Combobox ----------
+
+.scombobox {
+  margin: 0;
+}
+
+.scombobox-display {
+  @include border-radius(0);
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.scombobox-dropdown-background {
+  @include border-radius(0);
+  border: none;
+  background: none;
+}
+
+.scombobox-list {
+  box-sizing: initial;
+  border: none;
+  padding: 0 16px;
+  margin: 16px 0 0 -16px;
+  @include border-radius(2px);
+  @include box-shadow(0, 5px, 20px, rgba($grey-text, .2));
+  p {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    margin: 0 -16px;
+    @include transition(all .3s);
+  }
+}
+
+.scombobox-list p:hover {
+  color: $blue;
+  background: $light-grey;
+  @include transition(all .3s);
+}
+
+.scombobox-list p.scombobox-hovered {
+  background: $blue;
+  color: #fff;
+}
+
+.scombobox-dropdown-arrow {
+  background: none;
+  font-size: 24px;
+  line-height: 40px;
+  color: $grey-text;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.scombobox-dropdown-arrow-up {
+  color: $blue;
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.datepicker {
+  font-family: "akzentica_4fregular", sans-serif;
+  border: 0;
+  @include box-shadow(0, 5px, 20px, rgba($grey-text, .2));
+  @include border-radius(2px);
+  margin-top: 3px;
+}
+
+.datepicker--pointer {
+  display: none;
+}
+
+.datepicker--day-name {
+  @include border-radius(2px);
+  color: $grey-text;
+}
+
+.datepicker--cell.-current- {
+  background: $light-grey;
+  &:hover {
+    color: #fff;
+    background: $blue;
+  }
+}
+
+.datepicker--cell-day.-other-month-, .datepicker--cell-year.-other-decade- {
+  color: rgba($grey-text, .5);
+  &:hover {
+    background: $light-grey;
+  }
+}
+
+.datepicker--cell.-selected-, .datepicker--cell.-selected-.-current- {
+  background: $blue;
+  @include border-radius(2px);
+  &:hover {
+    background: $blue;
+  }
+}
+
+.datepicker--cell.-focus- {
+  color: #fff;
+  background: $blue;
+  @include border-radius(2px);
+}
+
+.datepicker--nav {
+  border-color: $border-grey;
+  padding: 8px 4px;
+}
+
+.datepicker--nav-action:hover, .datepicker--nav-title:hover {
+  background: none;
+  color: $blue;
+}
+
+.datepicker--buttons, .datepicker--time {
+  border-color: $border-grey;
+  padding: 8px 4px;
+}
+
+.person {
+  display: block;
+  padding: 16px;
+  margin: 0 -16px;
+
+  &:hover {
+    background: $light-grey;
+  }
+  .info {
+    display: block;
+    float: left;
+  }
+  img {
+    display: block;
+    float: left;
+    width: 56px;
+    height: 56px;
+    @include border-radius(50%);
+    margin-right: 24px;
+  }
+
+  .name {
+    font: 24px/32px 'akzentica_4fregular', sans-serif;
+  }
+
+  .position {
+    font: 16px/24px 'Source Sans Pro', sans-serif;
+    color: $grey-text;
+  }
+
+  .room {
+    display: block;
+    float: right;
+    font: 14px/22px 'Source Sans Pro', sans-serif;
+    color: $grey-text;
+    height: 24px;
+    padding: 0 8px;
+    margin-top: 6px;
+    border: 1px solid $border-grey;
+  }
+
+  .contact {
+    display: block;
+    float: right;
+    a {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: $grey-text;
+    }
+  }
+}
+
+.side-menu {
+  padding-left: 24px;
+  a {
+    font: 16px/32px 'Source Sans Pro', sans-serif;
+    color: $blue;
+    &:hover {
+      color: $black;
+    }
+  }
+  span {
+    color: $grey-text;
+    padding-left: 4px;
+  }
+}
+
+.profile {
+  .room {
+    display: inline-block;
+    font: 14px/22px 'Source Sans Pro', sans-serif;
+    color: #fff;
+    height: 24px;
+    padding: 0 8px;
+    @include linear-gradient(90deg, $blue, #0EC8FE);
+    @include border-radius(2px);
+    margin-left: 24px;
+  }
+
+  .position {
+    color: #fff;
+    font: 16px/32px 'Source Sans Pro', sans-serif;
+  }
+
+  .contacts {
+    color: #fff;
+    margin-top: 48px;
+    font: 16px/24px 'Source Sans Pro', sans-serif;
+    vertical-align: middle;
+
+    p {
+      display: inline-block;
+      span {
+        margin-right: 4px;
+      }
+    }
+
+    span {
+      font-size: 24px;
+      line-height: 24px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  }
+
+  .photo {
+    margin-top: 56px;
+  }
+}
+
+.projects {
+  margin-left: -8px;
+  li {
+    margin-bottom: 24px;
+  }
+
+  a {
+    font: 18px/24px 'Source Sans Pro', sans-serif;
+  }
+
+  p {
+    font: 14px/16px 'Source Sans Pro', sans-serif;
+    color: $grey-text;
+  }
+}
+
+.skills {
+  li {
+    display: inline-block;
+    height: 32px;
+    background: $light-grey;
+    padding: 0 16px;
+    margin: 0 8px 16px 0;
+    font: 16px/32px 'Source Sans Pro', sans-serif;
+    @include border-radius(16px);
+  }
+}
