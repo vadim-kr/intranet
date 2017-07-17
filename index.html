@@ -8,28 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!--    Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="fonts/stylesheet.css">
 
     <!--    Icon fonts-->
     <link rel="stylesheet" href="iconfont/style.css">
 
     <!--    CSS-->
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/datepicker.min.css">
+    <link rel="stylesheet" href="css/jquery.scombobox.min.css">
     <link rel="stylesheet" href="css/trumbowyg.min.css">
+    <link rel="stylesheet" href="css/dropzone.min.css">
     <link rel="stylesheet" href="css/main.css">
 
     <!--    JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/trumbowyg.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scombobox.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/trumbowyg.min.js"></script>
     <script src="js/trumbowyg.upload.js"></script>
+    <script src="js/dropzone.js"></script>
     <script src="js/script.js"></script>
 
 </head>
 
 <body>
 <!--   Header-->
+
+
 <header>
     <div class="container">
         <div class="row">
@@ -43,7 +52,26 @@
                 <a class="nav-link" href="#">База знаний</a>
             </nav>
             <div class="col col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <a href="#" class="user-pic"><img src="img/photos/photo-04.png"></a>
+                <div id="user">
+                    <a href="#" class="user-pic">
+                        <img src="img/photos/photo-04.png">
+                    </a>
+                    <ul class="user-menu">
+                        <li class="user">
+                            <a href="#" class="name">Елена Иванова</a>
+                            <p class="position">UI/UX Designer</p>
+                        </li>
+                        <li>
+                            <a href="settings.html">Редактировать</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">Выйти</a>
+                        </li>
+                        <li>
+                            <div class="line-blue"></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

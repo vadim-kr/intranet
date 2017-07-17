@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--    Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+
+    <!--    Icon fonts-->
+    <link rel="stylesheet" href="iconfont/style.css">
+
+    <!--    CSS-->
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/datepicker.min.css">
+    <link rel="stylesheet" href="css/jquery.scombobox.min.css">
+    <link rel="stylesheet" href="css/trumbowyg.min.css">
+    <link rel="stylesheet" href="css/dropzone.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--    JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scombobox.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/trumbowyg.min.js"></script>
+    <script src="js/trumbowyg.upload.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+<!--   Header-->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <a class="logo" href="#"><img src="img/logo.svg"></a>
+            </div>
+            <nav class="nav col col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <a class="nav-link" href="index.html">Новости</a>
+                <a class="nav-link" href="coworkers.html">Сотрудники</a>
+                <a class="nav-link" href="#">Проекты</a>
+                <a class="nav-link" href="#">База знаний</a>
+            </nav>
+            <div class="col col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div id="user">
+                    <a href="#" class="user-pic">
+                        <img src="img/photos/photo-04.png">
+                    </a>
+                    <ul class="user-menu">
+                        <li class="user">
+                            <a href="#" class="name">Елена Иванова</a>
+                            <p class="position">UI/UX Designer</p>
+                        </li>
+                        <li>
+                            <a href="settings.html">Редактировать</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">Выйти</a>
+                        </li>
+                        <li>
+                            <div class="line-blue"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container content">
+
+    <form id="settings">
+
+        <div class="row">
+            <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+
+                <div class="row name">
+                    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
+                    <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <h2>Валерия Матюшенко</h2>
+                        <p class="posted">Automation specialist</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <label for="skype">Skype</label>
+                    </div>
+                    <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <input type='text' id="skype" value="Valeriya_95"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <label for="email">Почта</label>
+                    </div>
+                    <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <input type='text' id="email" value="valera.matiushenko@trinetix.com"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <label for="phone">Телефон</label>
+                    </div>
+                    <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <input type='text' id="phone" value="098-026-05-67"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <label for="room">Комната</label>
+                    </div>
+                    <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <input type='text' id="room" value="520"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="drop-area" id="add-photo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <label for="about">О себе</label>
+            </div>
+
+            <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <textarea id="about" rows="1"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <label for="about">Навыки</label>
+            </div>
+
+            <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+
+            <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <input type="submit" class="button" value="Сохранить">
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+
+<!--<form>-->
+
+<!--<label for="skype">Skype</label>-->
+<!--<input type='text' id="skype"/>-->
+
+<!--<label for="email">Почта</label>-->
+<!--<input type='text' id="email"/>-->
+
+<!--<label for="phone">Номер телефона</label>-->
+<!--<input type='text' id="phone"/>-->
+
+<!--<label for="room">Комната</label>-->
+<!--<input type='text' id="room"/>-->
+
+<!--<div class="drop-area" id="add-photo"></div>-->
+
+<!--<input type="submit" class="button" value="Сохранить">-->
+
+<!--</form>-->
+
+</body>
+
+</html>

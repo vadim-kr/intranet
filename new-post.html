@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Trinetix — Новости</title>
+    <title>Новый пост</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -188,49 +188,85 @@
                 <a class="nav-link" href="#">База знаний</a>
             </nav>
             <div class="col col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <a href="#" class="user-pic"><img src="img/men.png"></a>
+                <div id="user">
+                    <a href="#" class="user-pic">
+                        <img src="img/photos/photo-04.png">
+                    </a>
+                    <ul class="user-menu">
+                        <li class="user">
+                            <a href="#" class="name">Елена Иванова</a>
+                            <p class="position">UI/UX Designer</p>
+                        </li>
+                        <li>
+                            <a href="settings.html">Редактировать</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">Выйти</a>
+                        </li>
+                        <li>
+                            <div class="line-blue"></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </header>
 
 <div class="container content">
-    <div class="row justify-content-center">
-        <div class="col col-sm col-md-1 col-lg-2 col-xl-2"></div>
-        <div class="col col-sm-12 col-md-10 col-lg-8 col-xl-8">
-            <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" id="article-btn">Статья</button>
-                <button type="button" class="btn btn-default active" id="event-btn">Событие</button>
-            </div>
-            <form class="new-post">
-                <input class="title" type="text" placeholder="Заголовок">
-                <div id="cover-drop" class="drop-area">
-                    Добавьте обложку (опционально)
-                </div>
-                <div class="event-fields">
-                    <div class="row">
-                        <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                            <input type='text' placeholder="День и время" data-timepicker="true"
-                                   class="datepicker-here"/>
-                        </div>
-                        <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                            <select id="combo-01">
-                                <option value="0">Место проведения</option>
-                                <option value="1">5й этаж, Треуголка</option>
-                                <option value="2">5й этаж, Бункер</option>
-                                <option value="3">4й этаж, Большая переговорка</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div id="editor" placeholder="Описание"></div>
-                <!--<div id="attach-drop" class="drop-area">-->
-                <!--Приекрепите файлы-->
-                <!--</div>-->
-                <input type="submit" class="button" value="Опубликовать">
-            </form>
+    <div class="row">
+        <div class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" id="article-btn">Статья</button>
+            <button type="button" class="btn btn-default active" id="event-btn">Событие</button>
         </div>
     </div>
+    <form id="new-post">
+        <div class="row">
+            <div class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <input class="title" type="text" placeholder="Заголовок">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <div id="cover-drop" class="drop-area"></div>
+            </div>
+        </div>
+        <div class="event-fields">
+            <div class="row">
+                <label for="date-time" class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">Когда</label>
+                <div class="col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <input type='text' data-timepicker="true" id="date-time"
+                           class="datepicker-here field"/>
+                </div>
+            </div>
+            <div class="row">
+                <label for="combo-01" class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">Место проведения</label>
+                <div class="col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <select id="combo-01" class="field">
+                        <option value="0"></option>
+                        <option value="1">5й этаж, Треуголка</option>
+                        <option value="2">5й этаж, Бункер</option>
+                        <option value="3">4й этаж, Большая переговорка</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label for="editor" class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">Описание</label>
+            <div class="col col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <div id="editor"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+            <div class="col col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <input type="submit" class="button" value="Опубликовать" disabled>
+            </div>
+        </div>
+    </form>
 </div>
 </body>
 

@@ -18,42 +18,8 @@ $(document).ready(function () {
         }
     });
 
-    // $('#search-btn').click(function () {
-    //     $('.search input').animate({
-    //         opacity: 1,
-    //         width: "100%"
-    //     }, 500);
-    //
-    //     $(this).animate({
-    //         left: 0,
-    //         right: 0
-    //     }, 500);
-    //
-    //     $(this).css('color', "#87939C");
-    //
-    //     $('#close-btn').show("slow");
-    // });
-
-    // $('#close-btn').click(function () {
-    //     $('.search input').animate({
-    //         opacity: 0,
-    //         width: 0
-    //     }, 500);
-    //
-    //     $('#search-btn').css({
-    //         left: "inherit",
-    //         right: "56px"
-    //     });
-    //
-    //     $('#search-btn').css('color', "#000");
-    //
-    //     $(this).hide();
-    // });
-
-    // $('.search .clear').hide('normal');
-
     $('.search input').keyup(function () {
-        if (!this.value){
+        if (!this.value) {
             $('.search .clear').hide();
         } else {
 
@@ -64,7 +30,7 @@ $(document).ready(function () {
     $('.search .clear').click(function () {
         $('.search input').val('');
     });
-    
+
 
     $('#editor').trumbowyg({
         btns: [
@@ -77,16 +43,6 @@ $(document).ready(function () {
         autogrow: true
     });
 
-    // $('.trumbowyg-button-pane').hide();
-    //
-    // $('.trumbowyg-editor').click(function () {
-    //     $('.trumbowyg-button-pane').show();
-    // });
-    //
-    // $('.trumbowyg-editor').blur(function () {
-    //     $('.trumbowyg-button-pane').hide();
-    // });
-
     Dropzone.options.myAwesomeDropzone = false;
 
     $("div#cover-drop").dropzone({
@@ -95,7 +51,6 @@ $(document).ready(function () {
         thumbnailHeight: 240
     });
 
-    $("div#attach-drop").dropzone({url: "/file/post"});
 
     $(".btn-default").click(function () {
         if (!$(this).hasClass('active')) {
@@ -118,16 +73,37 @@ $(document).ready(function () {
         $('.event-fields').css('display', 'block');
         $('.event-fields').animate({
             opacity: 1,
-            height: "64px",
+            height: "152px",
             paddingTop: "24px"
         }, 300);
     });
 
 
-    $("#combo-01").scombobox({
-        // fullMatch: false,
-        // highlight: false
+    $("#combo-01").scombobox({});
+
+    $(".scombobox-dropdown-arrow").addClass('icon-Expand');
+
+    $("header .user-pic").hover(function () {
     });
 
-    $('.scombobox-dropdown-arrow').addClass('icon-Expand');
+    $("header #user").hover(
+        function () {
+            var position = $('.user-pic').offset();
+
+            $('.user-menu').css({
+                'display': 'block',
+                'left': position.left - 168
+            });
+            $('.user-menu').animate({
+                opacity: 1
+            });
+        },
+        function () {
+            $('.user-menu').animate({
+                opacity: 0
+            });
+
+            $('.user-menu').css('display', 'none');
+
+        });
 });
